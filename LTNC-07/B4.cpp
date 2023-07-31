@@ -6,42 +6,45 @@ string ltrim(const string &);
 string rtrim(const string &);
 
 /*
- * Complete the 'powerSum' function below.
+ * Complete the 'crosswordPuzzle' function below.
  *
- * The function is expected to return an INTEGER.
+ * The function is expected to return a STRING_ARRAY.
  * The function accepts following parameters:
- *  1. INTEGER X
- *  2. INTEGER N
+ *  1. STRING_ARRAY crossword
+ *  2. STRING words
  */
 
-int powerSum(int X, int N, int num = 1) {
-    int i = static_cast<int>(X - pow(num, N));
-    if (i == 0){
-        return 1;
-    }else if (i < 0){
-        return 0;
-    }else {
-        return powerSum(X, N, num + 1) + powerSum(i, N, num + 1);
-    }
+vector<string> crosswordPuzzle(vector<string> crossword, string words) {
+
 }
 
 int main()
 {
     ofstream fout(getenv("OUTPUT_PATH"));
 
-    string X_temp;
-    getline(cin, X_temp);
+    vector<string> crossword(10);
 
-    int X = stoi(ltrim(rtrim(X_temp)));
+    for (int i = 0; i < 10; i++) {
+        string crossword_item;
+        getline(cin, crossword_item);
 
-    string N_temp;
-    getline(cin, N_temp);
+        crossword[i] = crossword_item;
+    }
 
-    int N = stoi(ltrim(rtrim(N_temp)));
+    string words;
+    getline(cin, words);
 
-    int result = powerSum(X, N);
+    vector<string> result = crosswordPuzzle(crossword, words);
 
-    fout << result << "\n";
+    for (size_t i = 0; i < result.size(); i++) {
+        fout << result[i];
+
+        if (i != result.size() - 1) {
+            fout << "\n";
+        }
+    }
+
+    fout << "\n";
 
     fout.close();
 
