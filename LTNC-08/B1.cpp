@@ -57,6 +57,7 @@ void free_singly_linked_list(SinglyLinkedListNode* node) {
  * };
  *
  */
+// Loop method
 void printLinkedList(SinglyLinkedListNode* head) {
     SinglyLinkedListNode* temp = head;
     while (temp != nullptr){
@@ -65,7 +66,19 @@ void printLinkedList(SinglyLinkedListNode* head) {
     }
 
 }
+// Recursion method
+/*
+void printLinkedList(SinglyLinkedListNode* head) {
+    if (head == nullptr) {
+        cout << endl;
+        return;
+    }
 
+    cout << head->data << " ";
+
+    printLinkedList(head->next);
+}
+*/
 int main()
 {
     SinglyLinkedList* llist = new SinglyLinkedList();

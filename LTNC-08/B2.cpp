@@ -55,6 +55,7 @@ void free_singly_linked_list(SinglyLinkedListNode* node) {
  * };
  *
  */
+//Loop method
 SinglyLinkedListNode* insertNodeAtTail(SinglyLinkedListNode* head, int data) {
     SinglyLinkedListNode* newNode = new SinglyLinkedListNode(data);
     newNode -> data = data;
@@ -71,7 +72,22 @@ SinglyLinkedListNode* insertNodeAtTail(SinglyLinkedListNode* head, int data) {
     }
     return head;
 }
+//Recursion method
+/*
+SinglyLinkedListNode* insertNodeAtTail(SinglyLinkedListNode* head, int data) {
+    
+    if (head == nullptr) {
+        SinglyLinkedListNode* newNode = new SinglyLinkedListNode;
+        newNode->data = data;
+        newNode->next = nullptr;
+        return newNode;
+    }
 
+    
+    head->next = insertNodeAtTail(head->next, data);
+    return head;
+}
+*/
 int main()
 {
     ofstream fout(getenv("OUTPUT_PATH"));
